@@ -5,7 +5,6 @@ import "./ExpensesFilter.css";
 const ExpensesFilter = (props) => {
   const dropDownChangeHandler = (event) => {
     props.onFilter(event.target.value);
-    props.handleFilterYear(event.target.value);
   };
 
   return (

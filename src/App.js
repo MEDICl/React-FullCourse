@@ -26,15 +26,6 @@ const DUMMY_EXPENSES = [
 
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
-  const [filteredExpenses, setfilteredExpenses] = useState(expenses);
-
-  const handleFilterYear = (selectedYear) => {
-    const filteredList = expenses.filter(
-      (expense) => expense.date.getFullYear() === parseInt(selectedYear)
-    );
-
-    setfilteredExpenses(filteredList);
-  };
 
   const addExpenseData = (expense) => {
     setExpenses((prevExpenses) => {
@@ -45,10 +36,7 @@ const App = () => {
   return (
     <div>
       <NewExpense onFormSubmission={addExpenseData}></NewExpense>
-      <Expenses
-        items={filteredExpenses}
-        handleFilterYear={handleFilterYear}
-      ></Expenses>
+      <Expenses items={expenses}></Expenses>
     </div>
   );
 };
